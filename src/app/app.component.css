@@ -1,0 +1,138 @@
+mat-toolbar{
+    height: 120px;
+    width: 100%;
+    padding: auto;
+}
+.borrar{
+    color: white;
+    height: 120px;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: auto;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #3F51B5;
+
+}
+.nav div{
+    flex-direction: row; 
+    box-sizing: border-box; 
+    display: flex;
+    align-items: center; 
+    margin-left: 10%;
+}
+
+.back{
+    margin-left: 5%;
+}
+
+.select{
+    margin-left: 15%;
+}
+
+.delete{
+    margin-left: 50%;
+}
+
+.search{
+    flex-direction: row; 
+    box-sizing: border-box; 
+    display: flex;
+    align-items: center; 
+    flex: 1 1 0%;
+    place-content: jus;
+    background-color: white;
+    min-width: 250px;
+    max-width: 50%;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 18px;
+    border-radius: 50px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+.search span{
+    color:slategray
+}
+.search input{
+    width: 90%;
+    outline: none;
+    border: none;
+    cursor: text;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+}
+
+table {
+    width: 96%;
+    margin-top: 1%;
+    border-radius: 15px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border-spacing: 1;
+}
+
+.check{
+    height: 16px;   
+    width: 16px;
+    cursor:pointer;
+}
+#checkbox1:checked ~ .borrar{
+    visibility: visible;
+    opacity:1;
+}
+
+.fav{
+    color: gold;
+}
+
+td :hover{
+    background-color: rgb(209, 209, 209);
+}
+
+.button-add{
+    float: left;
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    padding: 0;
+    z-index: 99;
+    height: 56px;
+    width: 56px;
+}
+
+.button-add :hover{
+    background-color: rgb(110, 110, 214);
+}
+
+@media(max-width:545px){
+    .nav{
+        display: inline-block;
+        align-items: center;
+    }
+    .nav div{
+        margin-top: 2%;
+    }
+    .phone{
+        display:none;
+    }
+    .delete{
+        margin-left: auto;
+    }
+}
+
+@media(max-width:475px){
+    .email{
+        display: none;
+    }
+}
