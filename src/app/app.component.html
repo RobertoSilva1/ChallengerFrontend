@@ -10,12 +10,12 @@
    </div>
 </mat-toolbar>
 
-<!--Checkbox delete Form -->
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <ng-template [ngIf]="idAmount!=0" 
+<!--Checkbox delete Form  -->
+<form [formGroup]="form">
+  <ng-template  [ngIf]="idAmount!=0"
   >
     <div class="borrar">
-      <button mat-button class="back" (click)="checkedAll = false">
+      <button mat-button class="back" (click)="deselectAll()">
         <mat-icon >keyboard_backspace</mat-icon>
         BACK
       </button>
@@ -23,10 +23,10 @@
         {{this.idAmount}} Selected
       </button>
       <mat-menu #menu="matMenu">
-        <button type="submit" mat-menu-item (click)="checkedAll = true">Select All</button>
-        <button type="submit" mat-menu-item (click)="checkedAll = false">Deselet All</button>
+        <button  mat-menu-item (click)="checkedAll = true;selectAll()">Select All</button>
+        <button  mat-menu-item (click)="checkedAll = false;deselectAll()">Deselet All</button>
       </mat-menu>
-      <button mat-icon-button class="delete" type="submit" (click)="submit()" [disabled]="!form.valid">
+      <button mat-icon-button class="delete" (click)="submit()" [disabled]="!form.valid">
         <mat-icon>delete</mat-icon>
       </button>
     </div>
@@ -88,12 +88,14 @@
             </mat-icon> 
           </ng-template>
         </button>
-        <button mat-icon-button mat-button [matMenuTriggerFor]="menu" class="menu">
+        <button mat-icon-button mat-button [matMenuTriggerFor]="menu" class="menu" >
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button type="submit" mat-menu-item (click)="onDelete(element.id)">Delete</button>
-        </mat-menu> 
+          <button  mat-menu-item (click)="onDelete(element.id)">Delete</button>
+          <button  mat-menu-item (click)="onEdit(element)">Edit</button>
+          
+        </mat-menu>
       </td>
     </ng-container>
 
@@ -110,8 +112,12 @@
 
 <!--Icon Fab-->
 <div class="example-button-container button-add">
-  <button mat-fab color="primary" (click)="nContact({id:5, name: 'Carlos', lastname: 'Oviedo', nickname: 'Wasabi', phone: 123456789, email: 'juampi123@gmail.com', company: 'HolaMundo!', job: 'cleaning staff', birthday: {}, address: '', notes: 'Im a Notes 4', fav:false})">
+  <button mat-fab color="primary" (click)="modal=true">
     <mat-icon>person_add</mat-icon>
   </button>
 </div>
-<router-outlet></router-outlet>
+
+<!-- Modal Edit-->
+<div *ngIf="modal == true">
+  <app-formulario ></app-formulario>
+</div>

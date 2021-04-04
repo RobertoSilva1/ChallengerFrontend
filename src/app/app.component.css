@@ -87,10 +87,7 @@ table {
     width: 16px;
     cursor:pointer;
 }
-#checkbox1:checked ~ .borrar{
-    visibility: visible;
-    opacity:1;
-}
+
 
 .fav{
     color: gold;

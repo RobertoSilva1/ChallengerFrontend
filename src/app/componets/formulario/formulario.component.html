@@ -1,0 +1,73 @@
+<div class="contenedor" >
+    <div class="modal">
+        <form class="form">
+            <header>
+                <div class="title ">
+                    <label for="" *ngIf="element.id==null;else edit">New Contact</label>
+                    <ng-template #edit>
+                        <label> Edit Contact</label>
+                    </ng-template>
+                    <label class="x" (click)="this.app.modal = false;this.tableService.cleanSelect()">x</label>
+                </div>
+                <div class="avatar">
+                    <mat-icon style="font-size:100px;margin-left: -75px;">account_circle</mat-icon>
+                    <h4 style="margin-top:90px;">{{element.name}}  {{element.lastname}}</h4>
+                </div>
+            </header>
+            <div class="inputs">
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Name*</mat-label>
+                    <input matInput type="texto" class="formControl" name="name" [(ngModel)]="element.name">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <mat-hint>Is requerid</mat-hint>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Lastname</mat-label>
+                    <input matInput type="texto" class="formControl" name="lastname" [(ngModel)]="element.lastname">
+                    <mat-icon matSuffix >account_circle</mat-icon>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Nickname</mat-label>
+                    <input matInput type="texto" class="formControl" name="nickname" [(ngModel)]="element.nickname">
+                    <mat-icon matSuffix>star</mat-icon>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Phone Number</mat-label>
+                    <input matInput type="tel" class="formControl" name="phone" [(ngModel)]="element.phone">
+                    <mat-icon matSuffix>call</mat-icon>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Email</mat-label>
+                    <input matInput type="email" class="formControl" name="email" [(ngModel)]="element.email">
+                    <mat-icon matSuffix>mail_outline</mat-icon>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Company</mat-label>
+                    <input matInput type="text" class="formControl" name="company" [(ngModel)]="element.company">
+                    <mat-icon matSuffix>corporate_fare</mat-icon>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Job</mat-label>
+                    <input matInput type="text" class="formControl" name="job" [(ngModel)]="element.job">
+                    <mat-icon matSuffix>work_outline</mat-icon>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Birthdate</mat-label>
+                    <input matInput type="date" class="formControl" name="birthdate" [(ngModel)]="element.birthdate">
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Address</mat-label>
+                    <input matInput type="text" class="formControl" name="address" [(ngModel)]="element.address">
+                    <mat-icon matSuffix>home</mat-icon>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label for="">Notes</mat-label>
+                    <input matInput type="text" class="formControl" name="notes" [(ngModel)]="element.notes">
+                </mat-form-field>
+            </div>
+            <div class="buttons">
+                <button mat-button (click)="onSave(); this.app.modal = false">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
